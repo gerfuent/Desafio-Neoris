@@ -1,0 +1,57 @@
+<h2 mat-dialog-title>Editar Pelicula</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="peliculaForm" (ngSubmit)="onFormSubmit()">
+        <div mat-dialog-content class="">
+            <div class="row" [hidden]="true">
+                <mat-form-field appearance="fill">
+                    <mat-label>IMDb ID</mat-label>
+                    <input matInput type="text" placeholder="IMDb ID" formControlName="imdbID">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput type="text" placeholder="Nombre pelicula" formControlName="Title">
+                    <span class="text-danger"
+                         *ngIf="(peliculasFormControl['Title'].touched) && peliculasFormControl['Title'].errors?.['required']">
+                        Debe ingresar un Nombre
+                    </span>
+                    </mat-form-field>
+                      
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Año Estreno</mat-label>
+                    <input matInput placeholder="Año Estreno" formControlName="Year">
+                    <span class="text-danger"
+                         *ngIf="(peliculasFormControl['Year'].touched) && peliculasFormControl['Year'].errors?.['required']">
+                        Debe ingresar un año
+                    </span>
+                </mat-form-field>
+            </div>
+    
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Tipo</mat-label>
+                    <input matInput type="text" placeholder="Movie" formControlName="Type">
+                    <span class="text-danger"
+                    *ngIf="(peliculasFormControl['Type'].touched) && peliculasFormControl['Type'].errors?.['required']">
+                   Debe ingresar un tipo
+               </span>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="fill">
+                    <mat-label>Poster</mat-label>
+                    <input matInput type="text" placeholder="Ingrese el link del poster" formControlName="Poster">
+                </mat-form-field>
+            </div>
+           
+        </div>
+       
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button  type="submit" (click)="onFormSubmit()" [mat-dialog-close]="true" [disabled]="peliculaForm.invalid" class="text-white bg-blue-700 disabled:hidden hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Enviar</button>
+  <button class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" mat-button [mat-dialog-close]="true" cdkFocusInitial>Cancelar</button>
+</mat-dialog-actions>

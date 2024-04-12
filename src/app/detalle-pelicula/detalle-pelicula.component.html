@@ -1,0 +1,53 @@
+
+
+<mat-dialog-content class="mat-typography">
+  <div
+*ngIf="peliculaDetalle$ | async  as pelicula" class="block max-w-[24rem] max-h-25 rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white overflow-y-auto">
+<div class="p-2">
+  <h2 class="mb-1 text-xl font-medium leading-tight ">{{pelicula.Title}}</h2>
+  <h3 class="mb-1 text-base font-medium leading-tight text-surface/75 dark:text-neutral-300">{{pelicula.Year}}</h3>
+  <p class="text-base">
+    {{pelicula.Plot}}
+  </p>
+</div>
+<div class="relative overflow-hidden bg-cover bg-no-repeat">
+    <img
+      class="rounded-t-lg object-cover w-full h-auto"
+      src="{{pelicula.Poster}}"
+      alt="" />
+  </div>
+
+  <div class="p-1" *ngIf="prefijo === 'tt'">
+    <p class="mb-0 text-base leading-normal">
+      Director: {{pelicula.Director}}
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Reparto: {{pelicula.Actors}}
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Genero: {{pelicula.Genre}}
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Rating imdb: {{pelicula.imdbRating}}
+    </p>
+  </div>
+  
+  <div class="p-1" *ngIf="prefijo === 'nt'">
+    <p class="mb-0 text-base leading-normal">
+      Categoria: {{pelicula.Type}}
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Reparto: N/A
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Genero: N/A
+    </p>
+    <p class="mb-0 text-base leading-normal">
+      Rating imdb: N/A
+    </p>
+  </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" mat-button [mat-dialog-close]="true" cdkFocusInitial>Cerrar</button>
+</mat-dialog-actions>
