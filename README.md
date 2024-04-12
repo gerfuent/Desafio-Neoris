@@ -1,6 +1,13 @@
 # GermanFuentesDesafio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+El proyecto fue construido usando:
+Angular 17.3.3
+angular/material 17.3.4
+Tailwindcss 3.4.3
+
+Se decidio usar angular 17 debido a que era la version que tenia disponible en mi computador, para evitar retrasos o riesgos por reambientar use la version disponible, la version con la que me siento mas comodo es la 12 
+se uso tailwindcss para implementar vistas responsibas ya que resulta mas sencillo e intuitivo para resolver un desafio con tiempo acotado como este
+para el manejo de informacion desde la api a la aplicacion se usaron elementos de la libreria RxJs como Behaviour subjects y el localStorage como indicaban las instrucciones del desafio, para manejar estos flujos de datos generalmente implemento un store global usando NGRX para implementar el patron Redux
 
 ## Development server
 
